@@ -33,7 +33,7 @@ export default async ({ req, res, log, error }) => {
     });
 
     const data = await response.json();
-
+    log(JSON.stringify(data));
     // 4. Kembalikan redirect_url ke Flutter
   
     if (data.redirect_url) {
