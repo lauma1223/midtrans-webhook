@@ -35,11 +35,20 @@ export default async ({ req, res, log, error }) => {
     const data = await response.json();
 
     // 4. Kembalikan redirect_url ke Flutter
-    return res.json({
-      success: true,
-      redirect_url: data.redirect_url,
-      token: data.token
-    });
+  
+    if (data.redirect_url) {
+  return res.json({
+    success: true,
+    redirect_url: data.redirect_url,
+    token: data.token
+  });
+} else {
+  return res.json({
+    success: false,
+    message: 'Midtrans tidak memberikan URL',
+    raw: data // kirim data mentah untuk cek error dari midtrans
+  });
+}
 
   } catch (err) {
     error(err.message);
