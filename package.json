@@ -2,6 +2,6 @@
   "name": "midtrans-webhook",
   "version": "1.0.0",
   "type": "module",
-  "main": "src/index.js",
+  "main": "src/main.js",
   "dependencies": {}
 }
